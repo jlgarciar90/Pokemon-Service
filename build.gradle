@@ -3,6 +3,7 @@ plugins {
 	id 'org.springframework.boot' version '3.5.4'
 	id 'io.spring.dependency-management' version '1.1.7'
  	id("com.github.bjornvester.xjc") version "1.8.2"
+ 	id "org.sonarqube" version "6.2.0.5505"
 }
 
 
@@ -56,4 +57,12 @@ tasks.named('test') {
 xjc {
     xsdDir = file('src/main/resources/wsdl/')
     defaultPackage = 'com.bankaya.challenge.pokemon.pokemonsoapservices.soap'
+}
+
+sonar {
+  properties {
+    property "sonar.projectKey", "Pokemon-soap2"
+    property "sonar.projectName", "Pokemon-soap2"
+    property "sonar.java.binaries", "build/generated/sources/xjc"
+  }
 }
