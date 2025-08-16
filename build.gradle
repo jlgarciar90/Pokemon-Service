@@ -61,8 +61,8 @@ xjc {
 
 sonar {
   properties {
-    property "sonar.projectKey", "Pokemon-soap2"
-    property "sonar.projectName", "Pokemon-soap2"
+    property "sonar.projectKey", "jlgarciar90_Pokemon-Service"
+    property "sonar.projectName", "Pokemon-Service"
     property "sonar.java.binaries", "build/generated/sources/xjc"
   }
 }
