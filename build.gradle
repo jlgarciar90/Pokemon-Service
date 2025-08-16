@@ -6,7 +6,6 @@ plugins {
  	id "org.sonarqube" version "6.2.0.5505"
 }
 
-
 group = 'com.bankaya.challenge.pokemon'
 version = '0.0.1-SNAPSHOT'
 
