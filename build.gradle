@@ -2,12 +2,14 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.4'
 	id 'io.spring.dependency-management' version '1.1.7'
- 	id("com.github.bjornvester.xjc") version "1.8.2"
- 	id "org.sonarqube" version "6.2.0.5505"
+ 	id 'com.github.bjornvester.xjc' version '1.8.2'
+ 	id 'org.sonarqube' version '6.2.0.5505'
+ 	id 'jacoco'
+ 	id 'com.github.spacialcircumstances.gradle-cucumber-reporting' version '0.1.25'
 }
 
 group = 'com.bankaya.challenge.pokemon'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	toolchain {
@@ -21,10 +23,13 @@ configurations {
 	}
 }
 
+jacoco {
+    toolVersion = "0.8.10"
+}
 
 repositories {
-	mavenCentral()
 	gradlePluginPortal()
+	mavenCentral()
 }
 
 dependencies {
@@ -47,21 +52,59 @@ dependencies {
 	
 	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
     implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.5'
+    
+    testImplementation 'org.mockito:mockito-core:5.5.0'
+    
+    //Dependencias Cucumber
+    testImplementation 'io.cucumber:cucumber-java:7.15.0'
+  	testImplementation 'io.cucumber:cucumber-spring:7.15.0'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.15.0'
+    testImplementation 'org.junit.platform:junit-platform-suite:1.10.0'
+    testImplementation 'net.java.dev.jna:jna:5.14.0'
+    testImplementation 'net.java.dev.jna:jna-platform:5.14.0'
+   
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
-
-xjc {
+tasks.named ('xjc') {
     xsdDir = file('src/main/resources/wsdl/')
     defaultPackage = 'com.bankaya.challenge.pokemon.pokemonsoapservices.soap'
 }
 
+jacoco {
+    toolVersion = "0.8.10"
+}
+
+// Configuración del plugin de reportes de Cucumber
+cucumberReports {
+	outputDir = file('build/reports/cucumber/cucumber-html/html/')
+	buildId = '0'
+	reports = files('build/reports/cucumber/cucumber.json')
+}
+
+tasks.named ('test') {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
 sonar {
   properties {
-    property "sonar.projectKey", "jlgarciar90_Pokemon-Service"
+    property "sonar.projectKey", "Pokemon-Service"
     property "sonar.projectName", "Pokemon-Service"
-    property "sonar.java.binaries", "build/generated/sources/xjc"
+    property "sonar.organization", "jlgarciar90"
+    //property "sonar.host.url", "http://localhost:9000"
+    property "sonar.java.binaries", "build/classes/java/main"
+    property "sonar.junit.reportPaths", "build/test-results/test"
+    property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
   }
 }

@@ -9,6 +9,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.bankaya.challenge.pokemon.pokemonsoapservices.dto.PokemonAbilitiesDto;
@@ -26,12 +27,19 @@ import com.google.gson.reflect.TypeToken;
 @Component
 public class ApiClient {
 	
-	private final HttpClient client = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).build();
+	private final HttpClient client;
 	private final Gson json = new Gson();
 	private final String url;
-	
+
+	@Autowired
 	public ApiClient() {
-		this.url = "https://pokeapi.co/api/v2/pokemon/";
+		this("https://pokeapi.co/api/v2/pokemon/"
+		    ,HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).build());
+	}
+
+	public ApiClient(String url, HttpClient httpClient) {
+		this.url = url;
+	    this.client = httpClient;
 	}
 
 	public PokemonAbilitiesDto getPokemonAbilities(String name){

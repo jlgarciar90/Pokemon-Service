@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "32711f2f-5a26-4256-947b-1d801866ad3f",
+		"name": "Pokemon-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46566952",
+		"_collection_link": "https://joseluisgarcia-3192617.postman.co/workspace/Jose-Luis-Garcia's-Workspace~5cf07b1b-d7c9-425a-8db1-ef56227a6a28/collection/46566952-32711f2f-5a26-4256-947b-1d801866ad3f?action=share&source=collection_link&creator=46566952"
+	},
+	"item": [
+		{
+			"name": "getAbilities",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:pok=\"http://challengeBankaya.com/pokemon/soap\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <pok:AbilitiesRequest>\r\n         <pok:name>pikachu</pok:name>\r\n      </pok:AbilitiesRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/webServicesPokemon/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webServicesPokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getItems",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:pok=\"http://challengeBankaya.com/pokemon/soap\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <pok:HeldItemsRequest>\r\n         <pok:name>pikachu</pok:name>\r\n      </pok:HeldItemsRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/webServicesPokemon/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webServicesPokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAreas",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:pok=\"http://challengeBankaya.com/pokemon/soap\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <pok:LocationAreaRequest>\r\n         <pok:name>pikachu</pok:name>\r\n      </pok:LocationAreaRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/webServicesPokemon/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webServicesPokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getExperience",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:pok=\"http://challengeBankaya.com/pokemon/soap\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <pok:BaseExperienceRequest>\r\n         <pok:name>pikachu</pok:name>\r\n      </pok:BaseExperienceRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/webServicesPokemon/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webServicesPokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getId",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:pok=\"http://challengeBankaya.com/pokemon/soap\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <pok:getIdRequest>\r\n         <pok:name>pikachu</pok:name>\r\n      </pok:getIdRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/webServicesPokemon/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webServicesPokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getName",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:pok=\"http://challengeBankaya.com/pokemon/soap\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <pok:getNameRequest>\r\n         <pok:name>pikachu</pok:name>\r\n      </pok:getNameRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/webServicesPokemon/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"webServicesPokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "name",
+			"value": "pikachu"
+		}
+	]
+}
