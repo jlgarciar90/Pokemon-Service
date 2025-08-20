@@ -89,7 +89,7 @@
 
 **Contruccion de imagen con compilacion del proyecto**
     
-    docker build -t pokemon-service:latest
+    docker build -t pokemon-service:latest .
 
 **Ejecución de imagen**
 
