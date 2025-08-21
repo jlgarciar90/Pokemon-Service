@@ -96,8 +96,17 @@
     docker run --name WebServicesPokemon -p 8080:8080 pokemon-service:latest
 
         
+### Validaciíon de Persistencia en base de datos H2
 
+**1. Ingresar la siguiente url en el navegador**
+    
+    http://localhost:8080/h2-console
 
+**2. Ingresar con los siguientes datos de conexión**
+
+    JDBC URL: jdbc:h2:mem:pokemonApi
+	User Name : sa
+	Password : @admin@123456
     
     
     
