@@ -96,7 +96,7 @@
     docker run --name WebServicesPokemon -p 8080:8080 pokemon-service:latest
 
         
-### Validaciíon de Persistencia en base de datos H2
+### Validación de Persistencia en base de datos H2
 
 **1. Ingresar la siguiente url en el navegador**
     
